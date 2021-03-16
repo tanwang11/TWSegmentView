@@ -39,7 +39,7 @@
     self = [super initWithFrame:CGRectZero];
     if (self) {
         _style             = style;
-        
+
         _titleArray        = @[@"tag1", @"tag2"];
         _btTitleNColor     = [UIColor lightGrayColor];
         _btTitleSColor     = [UIColor blackColor];
@@ -49,10 +49,10 @@
         _lineWidth         = 20;
         _lineWidthFlexible = NO;
         _lineWidthScale    = 0;
-        
+
         _titleLineHeight   = 2;
         _titleLineBottom   = 2;
-        
+
         _btSvGap           = 20;
     }
     return self;
@@ -82,14 +82,14 @@
             sv.showsHorizontalScrollIndicator = NO;
             sv.contentInset = UIEdgeInsetsMake(0, self.originX, 0, self.originX);
             [self addSubview:sv];
-            
+
             self.btSV = sv;
             break;
         }
         default:
             break;
     }
-    
+
     self.btArray = [NSMutableArray new];
     for (int i = 0; i < self.titleArray.count; i ++) {
         UIButton * btn      = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -103,15 +103,15 @@
         } else {
             btn.titleLabel.font = self.btTitleNFont;
         }
-        
+
         [btn setTitle:self.titleArray[i] forState:UIControlStateNormal];
         [btn setTitleColor:self.btTitleNColor forState:UIControlStateNormal];
         [btn setTitleColor:self.btTitleSColor forState:UIControlStateSelected];
         // [btn setBackgroundImage:[UIImage imageFromColor:[UIColor grayColor] size:CGSizeMake(1, 1)] forState:UIControlStateNormal];
         // [btn setBackgroundColor:[UIColor brownColor]];
-        
+
         [btn addTarget:self action:@selector(titleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        
+
         switch (self.style) {
             case TanwangSegmentViewTypeView : {
                 //平分宽度,不会自适应
@@ -131,7 +131,7 @@
             default:
                 break;
         }
-        
+
         [self.btArray addObject:btn];
         if (i == 0) {
             btn.selected = YES;
@@ -143,7 +143,7 @@
     if (!self.titleLineView) {
         self.titleLineView = [[UIView alloc] init];
         self.titleLineView.backgroundColor = self.lineColor;
-        
+
         switch (self.style) {
             case TanwangSegmentViewTypeView : {
                 //平分宽度,不会自适应
@@ -185,7 +185,7 @@
                     make.top.mas_equalTo(0);
                     make.left.mas_equalTo(self.originX);
                     make.bottom.mas_equalTo(0);
-                    
+
                 }];
                 [lastBT mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.top.mas_equalTo(0);
@@ -201,9 +201,9 @@
                     make.top.mas_equalTo(0);
                     make.left.mas_equalTo(self.originX);
                     make.bottom.mas_equalTo(0);
-                    
+
                 }];
-                
+
                 UIButton * priorBT = firstBT;
                 UIButton * tempBT;
                 for (int i = 1; i<self.btArray.count - 1; i++) {
@@ -216,7 +216,7 @@
                     }];
                     priorBT = tempBT;
                 }
-                
+
                 [lastBT mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.top.mas_equalTo(0);
                     make.left.mas_equalTo(priorBT.mas_right);
@@ -237,7 +237,7 @@
                 }];
             }
             [self masSpacingHorizontallyWith:self.btArray];
-            
+
             break;
         }
         case TanwangSegmentViewTypeScrollView : {
@@ -247,13 +247,13 @@
                     make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
                 }];
             }
-            
+
             UIButton * priorBT = self.btArray.firstObject;
             [priorBT mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.mas_equalTo(0);
                 make.centerY.mas_equalTo(0);
             }];
-            
+
             UIButton * oneBT;
             for (int i = 1; i<self.btArray.count; i++) {
                 oneBT = self.btArray[i];
@@ -263,7 +263,7 @@
                 }];
                 priorBT = oneBT;
             }
-            
+
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.btSV.contentSize = CGSizeMake(CGRectGetMaxX(priorBT.frame), self.btSV.height);
                 //NSLog(@"_ self.btSV.contentSize: %@", NSStringFromCGSize(self.btSV.contentSize));
@@ -274,13 +274,13 @@
         default:
             break;
     }
-    
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
+
         self.titleLineView.height = self.titleLineHeight;
         self.titleLineView.width  = self.lineWidth;
         self.titleLineView.bottom = self.height - self.titleLineBottom;
-        
+
         if (self.lineWidthFlexible) {
             [self updateLineViewToBT:self.btArray.firstObject];
         }
@@ -296,13 +296,13 @@
     if (scrollView == self.weakLinkSV &&
         !self.titleLineLock &&
         self.btArray.count > 0) {
-        
+
         float svOffX    = scrollView.contentOffset.x;
         float moveScale = svOffX/scrollView.width;
         int nextPage    = moveScale >= self.currentPage ? self.currentPage+1:self.currentPage-1;
-        
+
         if (0 <= nextPage && nextPage < self.titleArray.count) {
-            
+
             UIButton * nextBT = self.btArray[nextPage];
             float moveS = fabsf(moveScale - self.currentPage);
             if (moveS > 1) {
@@ -310,17 +310,17 @@
                 self.currentPage = svOffX/scrollView.width;
                 [self.currentBT setSelected:NO];
                 self.currentBT = self.btArray[self.currentPage];
-                
+
                 [self scrollViewDidScroll:scrollView];
                 return;
             }
-            
+
             if (self.isLineWidthFlexible) {
                 //NSLog(@"设置动态下划线宽度");
                 float width = (1.0-moveS)*self.currentBT.titleLabel.width + moveS*nextBT.titleLabel.width;
                 self.titleLineView.width = width * self.lineWidthScale;
             }
-            
+
             {
                 //NSLog(@"设置下划线中心");
                 float moveMaxWidth = self.currentBT.center.x - nextBT.center.x;
@@ -329,14 +329,14 @@
             }
         }
     }
-    
+
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView==self.weakLinkSV) {
         float svOffX     = scrollView.contentOffset.x;
         self.currentPage = svOffX/scrollView.width;
-        
+
         // 滑动结束异常处理
         if (self.currentPage >=0 && self.currentPage<self.btArray.count) {
             [self titleBtnClick:self.btArray[self.currentPage]];
@@ -366,12 +366,12 @@
     if (self.btTitleSFont) {
         self.currentBT.titleLabel.font = self.btTitleSFont;
     }
-    
+
     self.currentPage        = (int)bt.tag;
     // 加锁
     self.titleLineLock      = YES;
     [self updateLineViewToBT:self.currentBT];
-    
+
     [UIView animateWithDuration:0.35 delay:0 usingSpringWithDamping:1 initialSpringVelocity:12 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.weakLinkSV.contentOffset = CGPointMake(self.weakLinkSV.width * bt.tag, 0);
     } completion:^(BOOL finished) {
@@ -387,16 +387,16 @@
         }else{
             self.titleLineView.center = CGPointMake(bt.center.x, self.titleLineView.center.y);
         }
-        
+
         switch (self.style) {
             case TanwangSegmentViewTypeView : {
                 //平分宽度,不会自适应
-                
+
                 break;
             }
             case TanwangSegmentViewTypeViewAuto : {
                 // 自适应宽度,只在屏幕范围内
-                
+
                 break;
             }
             case TanwangSegmentViewTypeScrollView : {
@@ -414,7 +414,7 @@
 
 - (void)scrollToIndex:(NSInteger)index {
     if (index >= self.btArray.count) return;
-    
+
     UIButton * btn = self.btArray[index];
     [self titleBtnClick:btn];
 }

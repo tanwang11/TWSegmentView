@@ -24,8 +24,8 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		D1005C3B2600907B00DFCE60 /* TWa.m in Sources */ = {isa = PBXBuildFile; fileRef = D1005C392600907B00DFCE60 /* TWa.m */; };
-		D17052B326006290007E70BD /* TWSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D17052B226006290007E70BD /* TWSegmentView.m */; };
+		D1005C522600968C00DFCE60 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = D1005C4D2600968C00DFCE60 /* .gitkeep */; };
+		D1005C542600968C00DFCE60 /* TWSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1005C512600968C00DFCE60 /* TWSegmentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,10 +66,9 @@
 		9CFC69C210F0793EE3E836AC /* Pods-TWSegmentView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWSegmentView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TWSegmentView_Tests/Pods-TWSegmentView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B62B33CC2E39421F12075A5D /* Pods_TWSegmentView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TWSegmentView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B695D39A61AC3E2DE45F6232 /* Pods_TWSegmentView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TWSegmentView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1005C392600907B00DFCE60 /* TWa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWa.m; sourceTree = "<group>"; };
-		D1005C3A2600907B00DFCE60 /* TWa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWa.h; sourceTree = "<group>"; };
-		D17052B126006290007E70BD /* TWSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSegmentView.h; sourceTree = "<group>"; };
-		D17052B226006290007E70BD /* TWSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSegmentView.m; sourceTree = "<group>"; };
+		D1005C4D2600968C00DFCE60 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		D1005C4F2600968C00DFCE60 /* TWSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSegmentView.h; sourceTree = "<group>"; };
+		D1005C512600968C00DFCE60 /* TWSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSegmentView.m; sourceTree = "<group>"; };
 		D26F9B677CDF0861243204CD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		DB02023A11F47FB482B82572 /* Pods-TWSegmentView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWSegmentView_Tests.release.xcconfig"; path = "Target Support Files/Pods-TWSegmentView_Tests/Pods-TWSegmentView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F8822FBBCA0954E13E49BCC1 /* TWSegmentView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TWSegmentView.podspec; path = ../TWSegmentView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -115,7 +114,6 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
-				D170525426005F29007E70BD /* Classes */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for TWSegmentView */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -150,7 +148,8 @@
 		6003F593195388D20070C39A /* Example for TWSegmentView */ = {
 			isa = PBXGroup;
 			children = (
-				D1005C382600907B00DFCE60 /* ttt */,
+				D1005C4C2600968C00DFCE60 /* Assets */,
+				D1005C4E2600968C00DFCE60 /* Classes */,
 				6003F59C195388D20070C39A /* TWAppDelegate.h */,
 				6003F59D195388D20070C39A /* TWAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -204,23 +203,21 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		D1005C382600907B00DFCE60 /* ttt */ = {
+		D1005C4C2600968C00DFCE60 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				D1005C3A2600907B00DFCE60 /* TWa.h */,
-				D1005C392600907B00DFCE60 /* TWa.m */,
+				D1005C4D2600968C00DFCE60 /* .gitkeep */,
 			);
-			path = ttt;
+			path = Assets;
 			sourceTree = "<group>";
 		};
-		D170525426005F29007E70BD /* Classes */ = {
+		D1005C4E2600968C00DFCE60 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D17052B126006290007E70BD /* TWSegmentView.h */,
-				D17052B226006290007E70BD /* TWSegmentView.m */,
+				D1005C4F2600968C00DFCE60 /* TWSegmentView.h */,
+				D1005C512600968C00DFCE60 /* TWSegmentView.m */,
 			);
-			name = Classes;
-			path = ../TWSegmentView/Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +304,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				D1005C522600968C00DFCE60 /* .gitkeep in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -418,9 +416,8 @@
 			files = (
 				6003F59E195388D20070C39A /* TWAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* TWViewController.m in Sources */,
-				D1005C3B2600907B00DFCE60 /* TWa.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				D17052B326006290007E70BD /* TWSegmentView.m in Sources */,
+				D1005C542600968C00DFCE60 /* TWSegmentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
