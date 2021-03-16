@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TWSegmentView'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'TWSegmentView.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'TWSegmentView/Classes/*.{h,m}'
+#  s.source_files = 'TWSegmentView/Classes/*.{h,m}'
+  s.source_files = 'Example/TWSegmentView/ttt/*.{h,m}'
   
   # s.resource_bundles = {
   #   'TWSegmentView' => ['TWSegmentView/Assets/*.png']
