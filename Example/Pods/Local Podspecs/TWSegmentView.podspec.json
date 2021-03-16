@@ -1,0 +1,22 @@
+{
+  "name": "TWSegmentView",
+  "version": "0.1.0",
+  "summary": "TWSegmentView.",
+  "description": "TWSegmentView tool.",
+  "homepage": "https://github.com/tanwang11/TWSegmentView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "tanwang11": "aihy@linrunwc.com"
+  },
+  "source": {
+    "git": "https://github.com/tanwang11/TWSegmentView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "TWSegmentView/Classes/*.{h,m}"
+}

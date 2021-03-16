@@ -1,0 +1,6 @@
+framework module TWSegmentView {
+  umbrella header "TWSegmentView-umbrella.h"
+
+  export *
+  module * { export * }
+}
